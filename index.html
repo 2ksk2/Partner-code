@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </head>
+  <body>
+    <div
+      id="ad_con"
+      class="backdrop-container fixed w-screen h-screen bg-gray-600 z-50 opacity-30"
+    >
+      <ion-icon
+        id="ad_close"
+        class="text-4xl float-right m-10 text-white z-50"
+        name="close"
+      ></ion-icon>
+      <div
+        id="ad_popup"
+        style="background-size: cover; background-position: center"
+        class="w-3/4 max-w-sm bg-white h-60 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-60 rounded-md shadow-md bg-[url(https://i.ytimg.com/vi/eXcUwl1di0w/maxresdefault.jpg)]"
+      ></div>
+    </div>
+    <button onclick="doAd(1)" class="bg-green-700 p-1 pl-2 pr-2 rounded-md text-white m-5">Test Popup</button>
+    <script>
+      const ad_con = document.getElementById("ad_con");
+      const ad_popup = document.getElementById("ad_popup");
+      const ad_close = document.getElementById("ad_close");
+      ad_con.style.display = "none";
+      ad_popup.style.marginTop = "-50px";
+      ad_popup.style.transition = "0.4s";
+      function doAd(c) {
+        if (c == 1) {
+          ad_con.style.display = "";
+          setTimeout(() => {
+            ad_popup.style.marginTop = "0px";
+          }, 50);
+        }
+        if (c == 2) {
+          ad_popup.style.marginTop = "-100px";
+          setTimeout(() => {
+            ad_con.style.display = "none";
+          }, 100);
+        }
+      }
+      ad_con.addEventListener("click", function () {
+        doAd(2);
+      });
+      ad_close.addEventListener("click", function () {
+        doAd(2);
+      });
+    </script>
+  </body>
+</html>
