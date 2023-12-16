@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,100&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter">
+    <div class="h-12 w-full"></div>
+    <div class="w-max m-auto text-center  mt-14">
+        <h1 class="text-3xl font-black">Join Cupcake?</h1>
+        <p class="text-grey font-medium mt-5">Sign up for free!</p>
+    </div>
+    <div class="w-10/12 m-auto mt-8">
+        <input id="login-input-acc" placeholder="Email or username" class="bg-gray-100 text-sm p-3 w-full mt-3 rounded outline-none" type="text">
+        <p id="login-error-msg" class="text-sm text-red-700 ml-3 mt-3 hidden">Usernames must be an email or 3 characters or longer</p>
+        <input id="login-input-pw" placeholder="Password" class="bg-gray-100 text-sm p-3 w-full mt-3 rounded outline-none" type="text">
+        <button id="login-btn" class="mt-3 p-3 bg-gray-300 w-full rounded-full font-bold text-gray-400">Create account</button>
+    </div>
+    <div class="w-10/12 m-auto mt-8 text-center text-sm text-gray-500">
+        <p>By clicking <b>Create account</b>, you agree to Cupcake's <a class="underline" href="">Terms and Conditions</a> and confirm you have read our <a class="underline" href="">Privacy Notice</a>. You may receive offers, news and updates from us.</p>
+        <br>
+        <p class="font-medium">OR</p>
+        <div class="inline-block rounded-full border-1 border-lightgrey p-2 mt-3 w-max">
+            <div class="h-max flex">
+            <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Google Logo" class="w-8 h-8 align-middle mr-2">
+            <p class="mr-4 text-base font-semibold text-black mt-1">Sign up with Google</p>
+            </div>
+          </div>
+        <div class="inline-block rounded-full border-1 border-lightgrey p-2 mt-3 w-max">
+            <div class="h-max flex">
+            <img src="https://media.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png" alt="Google Logo" alt="Google Logo" class="w-6 h-7 align-middle mx-2">
+            <p class="mr-4 text-base font-semibold text-black mt-1">Sign up with Apple</p>
+            </div>
+          </div>
+        <br>
+        <p class="my-6 font-medium">Already have an account? <a href="" class="underline text-cupcakepurple">Log in</a></p>
+    </div>
+    <script>
+        const input_acc = document.getElementById("login-input-acc");
+        const input_pw = document.getElementById("login-input-pw");
+        const login_btn = document.getElementById("login-btn");
+        const login_error_msg = document.getElementById("login-error-msg");
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      var usernameRegex = /^[a-zA-Z0-9]{3,}$/;
+        input_acc.addEventListener("input", function(){
+
+            if (emailRegex.test(input_acc.value) || usernameRegex.test(input_acc.value)) {
+                input_acc.style.border = '2px solid transparent'
+                login_error_msg.style.display = 'none'
+            }else{
+                input_acc.style.border = '2px solid rgb(185 28 28 / 1)'
+                login_error_msg.style.display = 'block'
+            }
+            
+        })
+    </script>
+</body>
+</html>
